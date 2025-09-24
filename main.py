@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, abort
+from flask_cors import CORS
 import pandas as pd
 import os
 
@@ -8,6 +9,8 @@ from utils import *
 csv_file = "namaste_icd_mapping.csv"
 
 app = Flask(__name__)
+
+CORS(app)
 
 def load_csv_data(path):
     """Load the NAMASTE ICD mapping CSV into a Pandas DataFrame."""
